@@ -1,0 +1,17 @@
+conda create -y -n jax python=3.9
+conda activate jax
+
+## https://github.com/numba/llvmlite/issues/693#issuecomment-1114238035
+conda install -y llvmlite
+conda install -y numba
+conda install -y scipy matplotlib pip scikit-learn pandas jupyterlab
+
+conda install -y -c conda-forge progress
+
+## https://github.com/google/jax#installation
+pip install --upgrade "jax[cpu]"
+conda install -y -c conda-forge optax
+
+## https://anaconda.org/conda-forge/tensorflow
+conda install -y -c conda-forge tensorflow
+conda install -y -c conda-forge tensorflow-datasets
