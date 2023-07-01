@@ -1,0 +1,15 @@
+set term pdf
+set output "fig_energy_density_control_g.pdf"
+
+set xrange [-1.125:1.125]
+set yrange [-4.25:-1.75]
+set grid
+set xlabel "g"
+set ylabel "energy density"
+
+f(x)=-2*(x**2+1)
+
+p \
+"dat" u 1:2 w lp ti "L=inf,iDMRG", \
+f(x) w l ti "exact"
+#pause -1
