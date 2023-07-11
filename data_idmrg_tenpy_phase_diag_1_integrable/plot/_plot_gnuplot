@@ -1,0 +1,53 @@
+set cbrange [0:1]
+set noborder
+set noxtics
+set noytics
+
+
+set palette defined (0 "white", 0.1 "red")
+p \
+"dat" u ($2+0.5*$1):(0.5*sqrt(3.0)*$1) w p pt 7 ps 2.5 lc "black" ti "", \
+"dat" u ($2+0.5*$1):(0.5*sqrt(3.0)*$1):(abs($7)) w points palette pt 7 ps 2 ti "mx"
+pause -1
+pause -1
+
+set palette defined (0 "white", 0.1 "dark-green")
+p \
+"dat" u ($2+0.5*$1):(0.5*sqrt(3.0)*$1) w p pt 7 ps 2.5 lc "black" ti "", \
+"dat" u ($2+0.5*$1):(0.5*sqrt(3.0)*$1):(abs($8)) w points palette pt 7 ps 2 ti "mz"
+pause -1
+pause -1
+
+set palette defined (0 "white", 0.1 "blue")
+p \
+"dat" u ($2+0.5*$1):(0.5*sqrt(3.0)*$1) w p pt 7 ps 2.5 lc "black" ti "", \
+"dat" u ($2+0.5*$1):(0.5*sqrt(3.0)*$1):(abs($9)) w points palette pt 7 ps 2 ti "mstring"
+pause -1
+pause -1
+
+
+set multiplot layout 2,2
+set palette defined (0 "white", 0.1 "red")
+p \
+"dat" u ($2+0.5*$1):(0.5*sqrt(3.0)*$1) w p pt 7 ps 1.5 lc "black" ti "", \
+"dat" u ($2+0.5*$1):(0.5*sqrt(3.0)*$1):(abs($7)) w points palette pt 7 ps 1 ti "mx"
+set palette defined (0 "white", 0.1 "dark-green")
+p \
+"dat" u ($2+0.5*$1):(0.5*sqrt(3.0)*$1) w p pt 7 ps 1.5 lc "black" ti "", \
+"dat" u ($2+0.5*$1):(0.5*sqrt(3.0)*$1):(abs($8)) w points palette pt 7 ps 1 ti "mz"
+set palette defined (0 "white", 0.1 "blue")
+p \
+"dat" u ($2+0.5*$1):(0.5*sqrt(3.0)*$1) w p pt 7 ps 1.5 lc "black" ti "", \
+"dat" u ($2+0.5*$1):(0.5*sqrt(3.0)*$1):(abs($9)) w points palette pt 7 ps 1 ti "mstring"
+unset multiplot
+pause -1
+
+
+# https://stackoverflow.com/questions/26539305/how-to-add-colors-to-every-point-in-gnuplot-from-inside-the-point-file
+#rgb(r,g,b) = 65536 * int(r) + 256 * int(g) + int(b)
+rgb(r,g,b) = 65536 * int(255*r) + 256 * int(255*g) + int(255*b)
+#rgb(r,g,b) = 65536 * int(255*(1-r)) + 256 * int(255*(1-g)) + int(255*(1-b))
+p \
+"dat" u ($2+0.5*$1):(0.5*sqrt(3.0)*$1) w p pt 7 ps 1.5 lc "black" ti "", \
+"dat" u ($2+0.5*$1):(0.5*sqrt(3.0)*$1):(rgb($7,$8,$9)) with p lc rgb variable pt 7 ps 1 ti ""
+pause -1
