@@ -77,7 +77,7 @@ class CustomTFIModel(CouplingMPOModel):
     .. math ::
         H = - \sum_{\langle i,j\rangle, i < j} \mathtt{gzz} \sigma^z_i \sigma^z_{j}
             - \sum_{i} \mathtt{gx} \sigma^x_i
-            - \sum_{i} \mathtt{gzxz} \sigma^z_i \sigma^x_{i+1} \sigma^z_{i+2}
+            + \sum_{i} \mathtt{gzxz} \sigma^z_i \sigma^x_{i+1} \sigma^z_{i+2}
 
     Here, :math:`\langle i,j \rangle, i< j` denotes nearest neighbor pairs, each pair appearing
     exactly once.
