@@ -1,0 +1,2 @@
+python mkjobscript.py
+for i in _job_0* ; do bsub < $i ; done
