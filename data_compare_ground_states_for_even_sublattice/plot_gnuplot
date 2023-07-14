@@ -7,4 +7,4 @@ set key left top
 
 p \
 "./data_quspin_gs_vector/dat_vec_L4" w l ti "ED, L=4", \
-"./data_tenpy_gs_vector/dat_vec_L4" w p ti "iMPS, contract 4 iMPSs"
+"./data_tenpy_gs_vector/dat_vec_L4" w p ti "iDMRG, contract 4 iMPSs"
